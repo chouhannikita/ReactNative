@@ -1,0 +1,116 @@
+{
+  "user": [
+    {
+      "id": 0,
+      "name": "Nikita",
+      "email": "nikita@gmail.com",
+      "password": "123"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 1
+    },
+    {
+      "name": "nikita",
+      "email": "gakjgsad",
+      "password": "jkl;asjddd",
+      "id": 2
+    },
+    {
+      "name": "nikita",
+      "email": "gakjgsad",
+      "password": "jkl;asjddd",
+      "id": 3
+    },
+    {
+      "name": "abc",
+      "email": "abc",
+      "password": "abc2345678",
+      "id": 4
+    },
+    {
+      "name": "avc",
+      "email": "acd",
+      "password": "123456767",
+      "id": 5
+    },
+    {
+      "name": "Nikita",
+      "email": "nikita@gmail.com",
+      "password": "12345678",
+      "id": 6
+    },
+    {
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "password": "12345678",
+      "id": 7
+    },
+    {
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "password": "12345678",
+      "id": 8
+    }
+  ],
+  "expenses": [
+    {
+      "type": "card",
+      "amount": "123",
+      "desc": "shop",
+      "date": "2023-12-17T09:50:12.741Z",
+      "id": 1
+    },
+    {
+      "type": "card",
+      "amount": "1234",
+      "desc": "abc",
+      "date": "2023-12-16T16:08:37.268Z",
+      "id": 2
+    },
+    {
+      "type": "card",
+      "amount": "123456",
+      "desc": "saasd",
+      "date": "2023-12-16T05:03:27.545Z",
+      "id": 3
+    },
+    {
+      "type": "cash",
+      "amount": "300",
+      "desc": "vegetables",
+      "date": "2023-01-17T16:08:00.000Z",
+      "id": 4
+    },
+    {
+      "type": "card",
+      "amount": "1000",
+      "desc": "shopping",
+      "date": "2023-12-17T11:15:13.561Z",
+      "id": 5
+    },
+    {
+      "type": "cash",
+      "amount": "1234",
+      "desc": "abc",
+      "date": "2023-12-17T17:01:15.415Z",
+      "id": 6
+    },
+    {
+      "type": "card",
+      "amount": "123",
+      "desc": "asdfg",
+      "date": "2023-12-17T17:19:03.664Z",
+      "id": 7
+    },
+    {
+      "type": "card",
+      "amount": "dfjgkhl",
+      "desc": "23456789",
+      "date": "2023-12-17T17:20:24.946Z",
+      "id": 8
+    }
+  ]
+}
