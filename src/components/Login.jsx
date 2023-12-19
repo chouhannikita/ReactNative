@@ -1,8 +1,11 @@
 import React,{useEffect, useState} from 'react'
-import { View,TextInput,Text,TouchableOpacity,Pressable,StyleSheet } from 'react-native'
+import { View,TextInput,Text,TouchableOpacity,Pressable,StyleSheet, Image } from 'react-native'
 import { BASE_API_URL } from '../utils/constants';
 import axios from 'axios';
+import AntDesign from "react-native-vector-icons/AntDesign"
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 import { ScrollView } from 'react-native-gesture-handler';
+
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,6 +14,7 @@ const Login = (props) => {
   const [message,setMessage] = useState("")
   const [login,setLogin] = useState(false)
   useEffect(()=>{
+    GoogleSignin.configure()
    try{
       axios.get(`${BASE_API_URL}/user`).then((res)=>{
         setUser(res.data)
@@ -19,6 +23,28 @@ const Login = (props) => {
       console.log(err)
      }
   },[])
+
+  const signIn = async () => {
+    console.log("signin")
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      console.log(userInfo,"userinfo")
+      setState({ userInfo });
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        console.log(error)
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        console.log(error)
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        console.log(error)
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  };
 
   const handleValid = () => {
     let err = {};
@@ -107,14 +133,27 @@ const Login = (props) => {
           </Text>
         </View>
       </TouchableOpacity>
+      
       <View style={style.signin}>
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-          Already have an account ?
+          Do not have an account ?
           <Pressable onPress={()=>props.navigation.navigate('SignUp')}>
             <Text style={{color: 'blue', fontSize: 20}}>Sign Up</Text>
           </Pressable>
         </Text>
       </View>
+      <TouchableOpacity
+      style={style.googleBtnBtn}
+        onPress={signIn}
+        >
+        <View>
+          <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
+            google
+          </Text>
+          {/* <AntDesign name = "google" color="red" size={30}/> */}
+          <Image source={require('./images/google.png')}/>
+        </View>
+      </TouchableOpacity>
     </View>
   </View>
   </ScrollView>
@@ -159,5 +198,8 @@ const style = StyleSheet.create({
     marginHorizontal: 10,
     marginTop: 30,
   },
+  googleBtn : {
+    marginLeft : 20
+  }
 });
 export default Login
